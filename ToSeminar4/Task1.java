@@ -4,13 +4,14 @@ public class  Task1 {
     public static void main(String[] args){
         //Пусть дан LinkedList с несколькими элементами. Реализуйте метод, который вернет “перевернутый” список.
         LinkedList<String> lst = new LinkedList<>();
-        lst.add("каждый");
-        lst.add("охотник");
-        lst.add("желает");
-        lst.add("знать");
-        lst.add("где");
-        lst.add("сидит");
         lst.add("фазан");
+        lst.add("сидит");
+        lst.add("где");
+        lst.add("знать");
+        lst.add("желает");
+        lst.add("охотник");
+        lst.add("каждый");
+        
         System.out.println(lst);
         System.out.print(Reverse(lst));
 
