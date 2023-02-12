@@ -1,5 +1,4 @@
-public class Laptop 
-//implements Comparable<Laptop>
+public class Laptop implements Comparable<Laptop>
 {
     String model;
     String CPU;
@@ -32,11 +31,15 @@ public class Laptop
     }
 
 
+    
+
     @Override
-    public String toString()
-    {
-        //return "{" + "='" + name + '\'' +", age=" + age + '}';
-        return model+","+CPU+","+RAM+","+weight+","+screen+","+battery+","+preloadedoperationsystem+","+dimentions+","+price+",";
+    public int compareTo(Laptop o) {
+        //if (this.model != o.model) {
+            //return this.RAM - o.RAM;
+        //}
+        
+        return this.model.compareTo(o.model);
     }
 
 

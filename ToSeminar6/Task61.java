@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 //import java.util.Collections;
 //import java.util.Comparator;
 import java.util.HashMap;
@@ -36,11 +38,8 @@ public class Task61 {
         }
         Map<String,String> filterMap = filter(criterion, laptopss);
         //printMap(filterMap, criterion, criterionMap);
-        //filterModell(laptopss);
-        ArrayList<String> hh = new ArrayList<>();
-        hh.add("22");
-        hh.add("23");
-        System.out.println(hh);
+        filterModell(laptopss);
+    
 
         //filterModell(laptopss);
 
@@ -133,10 +132,13 @@ public class Task61 {
         //List<String> sorted = new List<String>(anyMap);
 
         ArrayList<Laptop> sorted = new ArrayList<>(anyMapp);
-        //Collections.sort(sorted);
+        //Comparator<Laptop> gg = new Comparator<>();
+        
+        Collections.sort(sorted);
         //Laptop[] sorted = new Laptop[] (anyMapp);
-        //ArrayList.sort((Comparator) sorted);
-        //Arrays.sort(sorted, new Comparator<Laptop>() {
+        //ArrayList.sort(sorted);
+        //Arrays.sort(sorted, new Comparator<Laptop>());
+         //{
             //@Override
             //public int compare (Laptop first, Laptop second)
             //{
@@ -148,7 +150,17 @@ public class Task61 {
         //});
 
         //Collections.sort(sorted);
-        System.out.println(sorted.toString());
+        printArrays(sorted);
+        //System.out.println(sorted.toString());
+    }
+
+    public static void printArrays(ArrayList<Laptop> arr){
+        System.out.println("|        Модель       |  Процессор |ОЗУ, Гб |Вес, кг  | Экран |Батарея, ч|   ОС     |Габариты, мм|  Цена, руб  |");
+        System.out.println("|_____________________|____________|________|_________|_______|__________|__________|____________|_____________|");
+        for (int i = 0; i<arr.size(); i++){
+            Laptop item = arr.get(i); 
+            System.out.println("|"+item.model+"|"+item.CPU+"|   "+item.RAM+"   |   "+item.weight+"   |"+item.screen+"|     "+item.battery+"    |"+item.preloadedoperationsystem+"|    "+item.dimentions+"    |   "+item.price+"   |");
+        }
     }
 
 }
