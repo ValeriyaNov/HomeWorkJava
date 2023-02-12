@@ -2,12 +2,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
-//import java.util.Collections;
-//import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-//import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -24,11 +20,9 @@ public class Task61 {
         Laptop l5 = new Laptop ("MSI Creator 17       ", "IntelCore i9", 64, "Glossy", 2f,    "Windows 11", "12*19", 24, 421000);
         
         HashSet<Laptop> laptopss = new HashSet<>(Arrays.asList(l1, l2, l3, l4, l5));
-        //for (var element: laptopss){
-            //element.Print();
-        //}
+        
         Scanner tttt = new Scanner(System.in);
-        //System.out.println("Введите номер критерия фильтрации: 1-Процессор, 2-ОЗУ, 3-Экран, 4-Масса, 5-Операционная система, 6-Габариты, 7-Батарея, 8-Цена");
+        System.out.println("Введите номер критерия фильтрации: 1-Процессор, 2-ОЗУ, 3-Экран, 4-Масса, 5-Операционная система, 6-Габариты, 7-Батарея, 8-Цена");
         int criterion = tttt.nextInt();
         Map<Integer,String> criterionMap = new HashMap<>();
         int[] keys = {1, 2, 3, 4, 5, 6, 7, 8};
@@ -37,11 +31,8 @@ public class Task61 {
             criterionMap.put(keys[i], vals[i]);
         }
         Map<String,String> filterMap = filter(criterion, laptopss);
-        //printMap(filterMap, criterion, criterionMap);
+        printMap(filterMap, criterion, criterionMap);
         filterModell(laptopss);
-    
-
-        //filterModell(laptopss);
 
         tttt.close();
     }
@@ -96,8 +87,7 @@ public class Task61 {
 
     public static void printMap(Map<String,String> anyMap, int criterion, Map<Integer, String> criterionMap){
         for (Map.Entry<Integer, String> prin : criterionMap.entrySet()){
-            //Integer key = prin.getKey();
-            //String value = prin.getValue();
+        
             if(prin.getKey() == criterion){
                 if(criterion == 2){
                     System.out.println("|         Модель        | "+prin.getValue()+", Гб   |");
@@ -129,29 +119,15 @@ public class Task61 {
     }
     
     public static void filterModell(HashSet<Laptop> anyMapp){
-        //List<String> sorted = new List<String>(anyMap);
-
+       
         ArrayList<Laptop> sorted = new ArrayList<>(anyMapp);
-        //Comparator<Laptop> gg = new Comparator<>();
-        
-        Collections.sort(sorted);
-        //Laptop[] sorted = new Laptop[] (anyMapp);
-        //ArrayList.sort(sorted);
-        //Arrays.sort(sorted, new Comparator<Laptop>());
-         //{
-            //@Override
-            //public int compare (Laptop first, Laptop second)
-            //{
-                //if (first.getAge() != second.getAge()) {
-                    //return first.getAge() - second.getAge();
-                //}
-                //return first.model.compareTo(second.model);
-            //}
-        //});
-
-        //Collections.sort(sorted);
+        System.out.println("Сортировка по алфавиту:");
+        Collections.sort(sorted, Laptop.ModelComparator);
         printArrays(sorted);
-        //System.out.println(sorted.toString());
+        System.out.println("Сортировка по цене:");
+        Collections.sort(sorted, Laptop.PriceComparator);
+        printArrays(sorted);
+        
     }
 
     public static void printArrays(ArrayList<Laptop> arr){

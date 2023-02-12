@@ -1,4 +1,7 @@
-public class Laptop implements Comparable<Laptop>
+import java.util.Comparator;
+
+public class Laptop 
+//implements Comparator<Laptop>
 {
     String model;
     String CPU;
@@ -28,27 +31,33 @@ public class Laptop implements Comparable<Laptop>
         this.dimentions = dim;
         this.battery = bat;
         this.price = j;
+    };
+    
+    
+
+    public static Comparator<Laptop> ModelComparator = new Comparator<Laptop>() {
+    @Override
+    public int compare(Laptop o1, Laptop o2) {
+        
+        return o1.model.compareTo(o2.model);
     }
+    };
+    
+    public static Comparator<Laptop> PriceComparator = new Comparator<Laptop>() {
+    @Override
+    public int compare(Laptop o1, Laptop o2) {
+        
+        return (int)(o2.price - o1.price);
+    }
+};
+}
 
 
     
-
-    @Override
-    public int compareTo(Laptop o) {
-        //if (this.model != o.model) {
-            //return this.RAM - o.RAM;
-        //}
-        
-        return this.model.compareTo(o.model);
-    }
+    
 
 
-    //@Override
-    //public int compareTo(Laptop o)
-    //{
-        //if (this.model != o.model) {
-            //return this.model - o.model;
-        //}
-        //return this.model.compareTo(o.model);
-    //}
-}
+
+
+    
+    
